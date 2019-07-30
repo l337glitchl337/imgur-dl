@@ -12,7 +12,7 @@ class Imgur:
 
   def fetch(self, url):
     data = self.session.get(url).content
-    filename = f"{os.getcwd()}\MyImages\{os.path.basename(url)}"
+    filename = f"{os.getcwd()}/MyImages/{os.path.basename(url)}"
     with open(filename, "wb") as f:
       f.write(data)
     print(f"Downloaded {os.path.basename(url)}")
@@ -32,12 +32,12 @@ class Imgur:
 if __name__ == "__main__":
   if os.path.exists("MyImages") == False:
     try:
-      os.mkdir(f"{os.getcwd()}\MyImages")
+      os.mkdir(f"{os.getcwd()}/MyImages")
     except:
       print("Error creating directory")
   else:
     pass
   albumhash = os.path.basename(input("Link to album: "))
   url = f"https://api.imgur.com/3/album/{albumhash}"
-  imgur = Imgur("<YOUR_CLIENT_ID>")
+  imgur = Imgur("a7396fe5d5d27da")
   imgur.fetch_links(url)
