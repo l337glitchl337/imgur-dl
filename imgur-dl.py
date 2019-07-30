@@ -39,5 +39,5 @@ if __name__ == "__main__":
     pass
   albumhash = os.path.basename(input("Link to album: "))
   url = f"https://api.imgur.com/3/album/{albumhash}"
-  imgur = Imgur("a7396fe5d5d27da")
+  imgur = Imgur("")
   imgur.fetch_links(url)
